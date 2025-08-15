@@ -1,0 +1,296 @@
+.compare-block {
+    padding: 16px 0;
+}
+
+/* Ссылка на сравнение с кол-вом */
+.compare-mini {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: flex-start;
+    gap: 8px;
+
+    text-decoration: none;
+    color: #999999;
+    transition: all 0.3s;
+}
+.compare-mini__icon rect {
+    fill: #999999;
+}
+.compare-mini__count {
+
+    display: none;
+}
+.compare-mini--active,
+.compare-mini:hover {
+    color: #114d8a;
+}
+.compare-mini--active .compare-mini__icon rect,
+.compare-mini:hover .compare-mini__icon rect {
+    fill: #114d8a;
+}
+.compare-mini--active .compare-mini__count {
+    display: inherit;
+}
+
+/* Добавление товара в сравнение */
+.compare {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    align-items: center;
+
+    gap: 4px 8px;
+}
+
+.compare__button {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: space-between;
+    align-items: flex-end;
+    gap: 8px;
+
+    background: none;
+    border: none;
+
+    font-size: 14px;
+    color: #666;
+
+    transition: all 0.3s;
+}
+
+.compare__button svg {
+
+}
+.compare__button svg path,
+.compare__button svg rect {
+    fill: #d7d7d7;
+    transition: all 0.3s;
+}
+
+.compare__button-text {
+    text-decoration: none;
+}
+.compare__button:hover,
+.compare__button:active {
+    color: #111;
+}
+
+.compare__button:hover svg path,
+.compare__button:active svg path,
+.compare__button:hover svg rect,
+.compare__button:active svg rect {
+    fill: #999999;
+}
+
+.compare--load {
+
+}
+.compare .compare__go {
+    display: none;
+
+    font-size: 14px;
+}
+
+.compare--added .compare__button svg path,
+.compare--added .compare__button svg rect {
+    fill: #114d8a;
+}
+.compare--added .compare__button {
+    color: #114d8a;
+}
+
+.compare--added  .compare__go {
+    display: inherit;
+}
+
+/* Страница сравнения */
+.compare-page {
+
+}
+
+/* Действия */
+.compare-page__actions {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 16px 24px;
+
+    margin: 8px 0 16px 0;
+}
+.compare-page__action {
+
+}
+.compare-page__action-differences {
+    margin: inherit;
+    font-weight: inherit;
+
+    color: #555555;
+}
+/* Галочка checkbox */
+.compare-checkbox {
+    position: relative;
+}
+.compare-checkbox__text {
+    padding-left: 28px;
+}
+.compare-checkbox__input,
+input[type=checkbox].compare-checkbox__input {
+    bottom: 0;
+    cursor: pointer;
+    height: 100%;
+    left: 0;
+    margin: 0;
+    opacity: 0;
+    position: absolute;
+    right: 0;
+    top: 0;
+    width: 100%;
+    z-index: 1;
+}
+.compare-checkbox__checkmark {
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    top: 50%;
+    left: 0;
+    background: #fff;
+    border: 1px solid #dfdfe1;
+    border-radius: 4px;
+    transform: translateY(-50%);
+    transition: all .2s ease-in;
+}
+.compare-checkbox__checkmark:after {
+    content: "";
+    position: absolute;
+}
+.compare-checkbox__input:checked ~ .compare-checkbox__checkmark:after {
+    border: solid #333333;
+    border-radius: 1px;
+    border-width: 0 3px 3px 0;
+    width: 5px;
+    height: 9px;
+    left: 6px;
+    top: 4px;
+    transform: rotate(45deg);
+}
+
+/* Таблица сравнения */
+.compare-grid {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+
+    margin: 24px 0 48px;
+
+    overflow-x: scroll;
+}
+@media only screen and (min-width: 560px) {
+    .compare-grid {
+        overflow-x: auto;
+    }
+}
+.compare-grid__row {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+
+    transition: background-color .2s linear;
+}
+.compare-grid__row--price {
+    border-bottom: 1px solid #eeeeee;
+}
+.compare-grid__row--item:hover {
+    background-color: #f7f7f7;
+}
+
+.compare-grid__cell {
+    position: relative;
+
+    min-width: inherit;
+    width: inherit;
+
+    word-break: break-word;
+}
+
+.compare-grid__cell--param {
+    min-width: 200px;
+    padding: 12px 32px 12px 8px;
+    width: 200px;
+    color: #555555;
+}
+
+.compare-grid__cell--category {
+    padding-top: 24px;
+    font-size: 1.5rem;
+}
+
+.compare-grid--only-differences .compare-grid__row--same {
+    display: none;
+}
+
+.compare-grid__remove {
+    position: absolute;
+    right: 8px;
+    top: 0px;
+
+    width: 32px;
+    height: 32px;
+    margin: 0;
+    padding: 0;
+    border: none;
+    background: none;
+    font-size: 24px;
+    line-height: 32px;
+    text-align: center;
+    font-weight: 400;
+    color: #cccccc;
+
+    transition: all 0.3s;
+}
+.compare-grid__remove:hover {
+    color: #999999;
+}
+
+
+/* Вспомогательные блоки для Таблицы сравнения */
+.compare-grid-image {
+    display: inline-block;
+}
+.compare-grid-image__img {
+    width: auto;
+    max-height: 100px;
+}
+
+.compare-grid-product {
+    font-size: 1.2rem;
+}
+
+/* Ячейки характеристик */
+.compare-specification {
+
+}
+
+.compare-specification__row {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: flex-start;
+    align-items: flex-start;
+}
+
+.compare-specification__cell {
+    position: relative;
+
+    min-width: 200px;
+    width: 200px;
+    padding: 12px 24px 12px 8px;
+
+    word-break: break-word;
+    color: #333333;
+}
+.compare-specification__cell--best {
+    color: #17a417;
+}
